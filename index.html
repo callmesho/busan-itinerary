@@ -1,0 +1,565 @@
+<title>釜山・慶州</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ─────────────────────────────────── */
+:root {
+  --bg:  #F6F6F4; --srf: #FFFFFF; --bdr: #E4E4DC;
+  --txt: #111210; --sub: #686860;
+  --acc: #1840CC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:  #0C0C0A; --srf: #171714; --bdr: rgba(255,255,255,.08);
+    --txt: #EEEEE8; --sub: #888880;
+    --acc: #7A9AFF;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:  #0C0C0A; --srf: #171714; --bdr: rgba(255,255,255,.08);
+  --txt: #EEEEE8; --sub: #888880;
+  --acc: #7A9AFF;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:'Noto Sans JP',system-ui,sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+
+/* ══ HERO ════════════════════════════════════ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(60,100,240,.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(240,80,40,.12) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(80,140,255,.10) 0%, transparent 70%),
+    linear-gradient(170deg, #06030F 0%, #0A122E 35%, #0D1C48 60%, #060F25 100%);
+  padding:40px 24px 36px;
+  color:#fff;
+}
+/* Shimmer top bar */
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent 0%,#4A80FF 30%,#FF7040 60%,transparent 100%);
+  background-size:200% 100%;animation:hs 3s ease-in-out infinite;
+}
+@keyframes hs{0%,100%{background-position:100% 0}50%{background-position:0% 0}}
+
+/* Decorative large circle (CSS shape, not an image) */
+.hero-ring{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.06);
+  top:-100px;right:-80px;pointer-events:none;
+}
+.hero-ring2{
+  position:absolute;width:200px;height:200px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.04);
+  top:-30px;right:20px;pointer-events:none;
+}
+
+.hero-label{
+  font-family:'Outfit',sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-bottom:16px;
+}
+.hero h1{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(46px,12vw,82px);font-weight:800;
+  line-height:.9;letter-spacing:-.04em;
+  color:#fff;margin-bottom:10px;
+}
+.hero h1 em{
+  display:block;font-style:normal;
+  font-size:clamp(20px,5vw,32px);font-weight:500;
+  letter-spacing:-.01em;color:rgba(255,255,255,.55);margin-top:8px;
+}
+.hero-dates{
+  font-family:'Outfit',sans-serif;
+  font-size:13px;font-weight:500;
+  color:rgba(255,255,255,.38);margin-bottom:26px;letter-spacing:.03em;
+}
+.hero-spots{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px;}
+.hspot{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:5px 11px;border-radius:999px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);
+  color:rgba(255,255,255,.8);font-size:12px;font-weight:500;
+}
+
+/* Day nav cards */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.hg{
+  display:block;text-decoration:none;
+  padding:14px 16px 14px 19px;border-radius:12px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);
+  position:relative;overflow:hidden;transition:background .13s;
+}
+.hg::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;}
+.hg1::before{background:#FF5830}
+.hg2::before{background:#1EAADC}
+.hg3::before{background:#DCA020}
+.hg4::before{background:#1EAA50}
+.hg:hover{background:rgba(255,255,255,.13);}
+.hg:active{opacity:.6}
+.hg-d{font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px}
+.hg-n{font-size:13px;font-weight:700;color:#fff;line-height:1.3}
+.hg-dt{font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;color:rgba(255,255,255,.6);margin-top:3px}
+
+/* ══ STICKY NAV ══════════════════════════════ */
+.snav{
+  position:sticky;top:0;z-index:50;
+  background:var(--srf);border-bottom:1px solid var(--bdr);
+  display:flex;overflow-x:auto;scrollbar-width:none;
+}
+.snav::-webkit-scrollbar{display:none}
+.sna{
+  flex-shrink:0;display:flex;align-items:center;gap:7px;
+  padding:11px 16px;text-decoration:none;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;
+  color:var(--sub);white-space:nowrap;transition:color .1s;
+}
+.sna:hover{color:var(--txt)}
+.snd{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.s1{background:#FF5830}.s2{background:#1EAADC}
+.s3{background:#DCA020}.s4{background:#1EAA50}
+
+/* ══ PAGE ════════════════════════════════════ */
+.page{max-width:680px;margin:0 auto;padding-bottom:80px}
+.gap{height:0;background:var(--bg)}
+
+/* ══ DAY SECTION — photo-like tall headers ════ */
+.day-sec{scroll-margin-top:44px}
+
+/* Tall "photo" header using CSS gradient art */
+.dh{
+  position:relative;overflow:hidden;
+  min-height:210px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 24px 52px;
+  color:#fff;
+}
+
+/* Curved cutout at the bottom (white wave) */
+.dh::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:44px;
+  background:var(--srf);
+  clip-path:ellipse(54% 100% at 50% 100%);
+  z-index:2;
+}
+
+/* Decorative circles inside each day header */
+.dh-ring{position:absolute;border-radius:50%;pointer-events:none;border:1px solid rgba(255,255,255,.1);}
+.dh-r1{width:300px;height:300px;right:-80px;top:-100px;}
+.dh-r2{width:160px;height:160px;right:-10px;top:-10px;border-color:rgba(255,255,255,.06)}
+
+/* Day-specific gradient "photography" */
+#day1 .dh{
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 30%, rgba(255,120,60,.25) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(60,20,120,.30) 0%, transparent 55%),
+    linear-gradient(160deg, #120820 0%, #2A1040 35%, #1A0828 65%, #0E0418 100%);
+}
+#day2 .dh{
+  background:
+    radial-gradient(ellipse 70% 60% at 75% 25%, rgba(20,180,240,.20) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 15% 75%, rgba(0,40,100,.40) 0%, transparent 55%),
+    linear-gradient(160deg, #001828 0%, #003060 40%, #005080 65%, #001828 100%);
+}
+#day3 .dh{
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 20%, rgba(220,160,30,.25) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(100,40,0,.35) 0%, transparent 55%),
+    linear-gradient(160deg, #1A0A00 0%, #3A1800 40%, #5A2800 65%, #1A0A00 100%);
+}
+#day4 .dh{
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 20%, rgba(30,180,80,.20) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(0,60,20,.35) 0%, transparent 55%),
+    linear-gradient(160deg, #001208 0%, #003018 40%, #005028 65%, #001208 100%);
+}
+
+/* Content inside dh */
+.dh-inner{position:relative;z-index:1}
+.dh-num{
+  font-family:'Outfit',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-bottom:7px;
+}
+.dh-title{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(16px,3.5vw,22px);font-weight:700;
+  letter-spacing:-.01em;line-height:1.2;
+  color:#fff;margin-bottom:5px;
+}
+.dh-sub{font-size:12.5px;color:rgba(255,255,255,.58);}
+
+/* Load badge */
+.dh-badge{
+  position:absolute;right:22px;top:20px;z-index:1;
+  font-family:'Outfit',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:5px 10px;border-radius:6px;
+  background:rgba(0,0,0,.3);color:rgba(255,255,255,.88);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+}
+
+/* Large watermark number */
+.dh-wm{
+  position:absolute;right:20px;bottom:42px;z-index:0;
+  font-family:'Outfit',sans-serif;
+  font-size:100px;font-weight:800;line-height:1;
+  color:rgba(255,255,255,.05);letter-spacing:-.05em;
+  pointer-events:none;user-select:none;
+}
+
+/* ══ TIMELINE — 2-col, compact ═══════════════ */
+.tl{background:var(--srf);border-bottom:1px solid var(--bdr);}
+.tr{
+  display:grid;grid-template-columns:60px 1fr;
+  border-bottom:1px solid var(--bdr);min-height:44px;
+}
+.tr:last-child{border-bottom:none}
+.tt{
+  padding:10px 6px 8px 16px;
+  font-family:'Outfit',monospace;
+  font-size:11px;font-weight:700;letter-spacing:.02em;
+  color:var(--acc);line-height:1.35;
+  display:flex;align-items:flex-start;
+  border-right:1.5px solid var(--bdr);
+}
+.tr.dim .tt{color:var(--sub);font-weight:600}
+.tc{padding:9px 14px 9px 12px}
+.tp{display:flex;align-items:center;gap:6px;margin-bottom:2px;flex-wrap:nowrap}
+.te{font-size:15px;line-height:1;flex-shrink:0}
+.tn{font-size:13.5px;font-weight:700;color:var(--txt);line-height:1.3;flex:1;min-width:0}
+.ta{display:flex;gap:4px;flex-shrink:0;margin-left:auto}
+/* 🔍 search icon btn */
+.bi{
+  width:26px;height:26px;border-radius:6px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;text-decoration:none;
+  border:1.5px solid var(--bdr);background:var(--bg);
+  transition:border-color .1s;
+}
+.bi:hover{border-color:var(--txt)}
+/* 📍 map icon btn */
+.bm{
+  width:26px;height:26px;border-radius:6px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;text-decoration:none;
+  background:var(--acc);transition:opacity .1s;
+}
+.bm:hover{opacity:.8}
+.td{font-size:12px;color:var(--sub);line-height:1.45;margin:0 0 0 21px}
+.td:empty{display:none}
+
+/* ══ NOTE ════════════════════════════════════ */
+.note{background:var(--srf);padding:12px 20px 14px}
+.note p{font-size:12.5px;color:var(--sub);line-height:1.5;padding-left:12px;border-left:3px solid var(--bdr)}
+.note p strong{color:var(--txt);font-weight:700}
+
+/* ══ FOOTER ══════════════════════════════════ */
+.foot{background:var(--srf);border-top:1px solid var(--bdr);padding:20px 22px 36px}
+.foot-lbl{font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
+.foot-tips{display:flex;flex-wrap:wrap;gap:7px}
+.ft{background:var(--bg);border:1px solid var(--bdr);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:500;color:var(--sub)}
+
+/* ══ RESPONSIVE ══════════════════════════════ */
+@media(max-width:440px){
+  .hero{padding:30px 16px 28px}
+  .dh{padding:0 16px 48px;min-height:180px}
+  .dh-badge{right:16px}
+  .tr{grid-template-columns:50px 1fr}
+  .tt{padding:9px 5px 7px 12px;font-size:10.5px}
+  .tc{padding:8px 12px 8px 10px}
+  .foot{padding:16px 16px 28px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero::before{animation:none}
+  *{transition:none!important}
+}
+</style>
+
+<!-- ══ HERO ══════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-ring"></div>
+  <div class="hero-ring2"></div>
+  <p class="hero-label">2026 · South Korea Travel</p>
+  <h1>BUSAN<br>& GYEONGJU
+    <em>釜山・慶州 3泊4日</em>
+  </h1>
+  <p class="hero-dates">September 7 – 10, 2026</p>
+  <div class="hero-spots">
+    <span class="hspot">⛩️ 海東龍宮寺</span>
+    <span class="hspot">🚂 ビーチ列車</span>
+    <span class="hspot">🏛️ 仏国寺</span>
+    <span class="hspot">🌉 広安大橋</span>
+    <span class="hspot">🎨 甘川文化村</span>
+  </div>
+  <div class="hero-grid">
+    <a href="#day1" class="hg hg1">
+      <div class="hg-d">DAY 1</div>
+      <div class="hg-n">到着・南浦洞</div>
+      <div class="hg-dt">9月7日（月）</div>
+    </a>
+    <a href="#day2" class="hg hg2">
+      <div class="hg-d">DAY 2</div>
+      <div class="hg-n">東海岸・広安里</div>
+      <div class="hg-dt">9月8日（火）</div>
+    </a>
+    <a href="#day3" class="hg hg3">
+      <div class="hg-d">DAY 3</div>
+      <div class="hg-n">慶州 終日</div>
+      <div class="hg-dt">9月9日（水）</div>
+    </a>
+    <a href="#day4" class="hg hg4">
+      <div class="hg-d">DAY 4</div>
+      <div class="hg-n">甘川・帰国</div>
+      <div class="hg-dt">9月10日（木）</div>
+    </a>
+  </div>
+</div>
+
+<!-- ══ NAV ═══════════════════════════════════ -->
+<nav class="snav">
+  <a href="#day1" class="sna"><span class="snd s1"></span>DAY 1 到着</a>
+  <a href="#day2" class="sna"><span class="snd s2"></span>DAY 2 東海岸</a>
+  <a href="#day3" class="sna"><span class="snd s3"></span>DAY 3 慶州</a>
+  <a href="#day4" class="sna"><span class="snd s4"></span>DAY 4 帰国</a>
+</nav>
+
+<div class="page">
+
+<!-- ══════ DAY 1 ══════════════════════════════ -->
+<section class="day-sec" id="day1">
+  <div class="dh">
+    <div class="dh-ring dh-r1"></div>
+    <div class="dh-ring dh-r2"></div>
+    <div class="dh-wm">1</div>
+    <div class="dh-badge">軽め</div>
+    <div class="dh-inner">
+      <div class="dh-num">DAY 1 · 9月7日（月）</div>
+      <div class="dh-title">到着日｜釜山駅・南浦洞</div>
+      <div class="dh-sub">詰め込まず、食事と旧市街だけ</div>
+    </div>
+  </div>
+  <div class="tl">
+    <div class="tr">
+      <div class="tt">12:40</div>
+      <div class="tc"><div class="tp"><span class="te">✈️</span><span class="tn">金海空港 到着</span><div class="ta"><a class="bm" href="https://maps.google.com/maps?q=金海国際空港&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">入国・荷物受取</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">14:00</div>
+      <div class="tc"><div class="tp"><span class="te">🏨</span><span class="tn">空港 → Notte La Mia</span><div class="ta"><a class="bm" href="https://maps.google.com/maps?q=Notte+La+Mia+Busan&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">ホテルにチェックイン・荷物を置く</p></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">14:30</div>
+      <div class="tc"><div class="tp"><span class="te">🍽️</span><span class="tn">遅めの昼食</span></div><p class="td">到着後まず食事</p></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">15:30</div>
+      <div class="tc"><div class="tp"><span class="te">😴</span><span class="tn">Notte La Mia で休憩</span></div></div>
+    </div>
+    <div class="tr">
+      <div class="tt">16:30</div>
+      <div class="tc"><div class="tp"><span class="te">🛍️</span><span class="tn">南浦洞エリア散策</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=南浦洞+釜山" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=南浦洞+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">BIFF広場・国際市場・チャガルチ市場</p></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">18:30</div>
+      <div class="tc"><div class="tp"><span class="te">🍺</span><span class="tn">夕食</span></div><p class="td">南浦洞周辺</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">19:30</div>
+      <div class="tc"><div class="tp"><span class="te">🌆</span><span class="tn">余力があれば龍頭山公園・釜山タワー</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=龍頭山公園+釜山タワー" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=龍頭山公園+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">疲れていればそのまま帰宿</p></div>
+    </div>
+  </div>
+  <div class="note"><p><strong>ポイント：</strong>移動日。観光は南浦洞1エリアだけで終了。</p></div>
+</section>
+<div class="gap"></div>
+
+<!-- ══════ DAY 2 ══════════════════════════════ -->
+<section class="day-sec" id="day2">
+  <div class="dh">
+    <div class="dh-ring dh-r1"></div>
+    <div class="dh-ring dh-r2"></div>
+    <div class="dh-wm">2</div>
+    <div class="dh-badge">中</div>
+    <div class="dh-inner">
+      <div class="dh-num">DAY 2 · 9月8日（火）</div>
+      <div class="dh-title">東海岸｜龍宮寺 → 松亭 → 海雲台 → 広安里</div>
+      <div class="dh-sub">東から西へ戻る一方向の動線</div>
+    </div>
+  </div>
+  <div class="tl">
+    <div class="tr dim">
+      <div class="tt">09:00</div>
+      <div class="tc"><div class="tp"><span class="te">🚉</span><span class="tn">釜山駅周辺 出発</span></div></div>
+    </div>
+    <div class="tr">
+      <div class="tt">10:00</div>
+      <div class="tc"><div class="tp"><span class="te">⛩️</span><span class="tn">海東龍宮寺</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=海東龍宮寺" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=海東龍宮寺+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">この日いちばん階段が多い場所</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">11:15</div>
+      <div class="tc"><div class="tp"><span class="te">🏖️</span><span class="tn">松亭へ移動・昼食</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=松亭ビーチ+釜山" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=松亭+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">しっかり座って休む</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">12:30</div>
+      <div class="tc"><div class="tp"><span class="te">🚂</span><span class="tn">ビーチ列車・青沙浦</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=釜山海岸列車+青沙浦" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=青沙浦+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">松亭 → 青沙浦 → 尾浦方面。途中下車は欲張らない</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">15:00</div>
+      <div class="tc"><div class="tp"><span class="te">🌊</span><span class="tn">尾浦・海雲台ビーチ</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=海雲台+釜山" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=海雲台ビーチ+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">余力があれば冬柏島まで</p></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">17:30</div>
+      <div class="tc"><div class="tp"><span class="te">🍖</span><span class="tn">夕食</span></div><p class="td">海雲台周辺</p></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">18:30</div>
+      <div class="tc"><div class="tp"><span class="te">🚶</span><span class="tn">広安里へ移動</span></div></div>
+    </div>
+    <div class="tr">
+      <div class="tt">19:00</div>
+      <div class="tc"><div class="tp"><span class="te">🌉</span><span class="tn">広安里・広安大橋の夜景</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=広安大橋+夜景+釜山" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=広安大橋+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">21:30</div>
+      <div class="tc"><div class="tp"><span class="te">🏨</span><span class="tn">Notte La Mia へ戻る</span><div class="ta"><a class="bm" href="https://maps.google.com/maps?q=Notte+La+Mia+Busan&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+  </div>
+  <div class="note"><p><strong>ポイント：</strong>冬柏島は「余力があれば追加」。無理に全部回らない。</p></div>
+</section>
+<div class="gap"></div>
+
+<!-- ══════ DAY 3 ══════════════════════════════ -->
+<section class="day-sec" id="day3">
+  <div class="dh">
+    <div class="dh-ring dh-r1"></div>
+    <div class="dh-ring dh-r2"></div>
+    <div class="dh-wm">3</div>
+    <div class="dh-badge">高め</div>
+    <div class="dh-inner">
+      <div class="dh-num">DAY 3 · 9月9日（水）</div>
+      <div class="dh-title">慶州｜仏国寺・石窟庵・古都夜景</div>
+      <div class="dh-sub">この旅でいちばん歩く日</div>
+    </div>
+  </div>
+  <div class="tl">
+    <div class="tr dim">
+      <div class="tt">11:00</div>
+      <div class="tc"><div class="tp"><span class="te">🚄</span><span class="tn">釜山 → 慶州</span></div></div>
+    </div>
+    <div class="tr">
+      <div class="tt">11:30</div>
+      <div class="tc"><div class="tp"><span class="te">🚉</span><span class="tn">慶州 到着</span><div class="ta"><a class="bm" href="https://maps.google.com/maps?q=慶州駅&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+    <div class="tr">
+      <div class="tt">11:40</div>
+      <div class="tc"><div class="tp"><span class="te">🏛️</span><span class="tn">中心部を軽く観光</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=大陵苑+慶州" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=大陵苑+慶州&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">大陵苑周辺など</p></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">12:10</div>
+      <div class="tc"><div class="tp"><span class="te">🍜</span><span class="tn">昼食</span></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">13:00</div>
+      <div class="tc"><div class="tp"><span class="te">🚌</span><span class="tn">中心部 → 仏国寺</span></div><p class="td">バスで移動</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">13:30</div>
+      <div class="tc"><div class="tp"><span class="te">⛩️</span><span class="tn">仏国寺</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=仏国寺+慶州" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=仏国寺+慶州&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+    <div class="tr">
+      <div class="tt">14:30</div>
+      <div class="tc"><div class="tp"><span class="te">🪨</span><span class="tn">石窟庵 往復</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=石窟庵+慶州" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=石窟庵+慶州&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">バス時刻を最優先で調整</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">17:00</div>
+      <div class="tc"><div class="tp"><span class="te">🏛️</span><span class="tn">中心部観光（瞻星台など）</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=瞻星台+慶州" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=瞻星台+慶州&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">18:00</div>
+      <div class="tc"><div class="tp"><span class="te">🍖</span><span class="tn">夕食</span></div><p class="td">日没待ちを兼ねる</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">19:00</div>
+      <div class="tc"><div class="tp"><span class="te">🌙</span><span class="tn">夜景スポット</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=東宮と月池+慶州+夜景" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=東宮と月池+慶州&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">月精橋・東宮と月池・瞻星台</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">20:30</div>
+      <div class="tc"><div class="tp"><span class="te">🚉</span><span class="tn">慶州駅へ</span><div class="ta"><a class="bm" href="https://maps.google.com/maps?q=慶州駅&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">21時台</div>
+      <div class="tc"><div class="tp"><span class="te">🚄</span><span class="tn">KTXで釜山へ</span></div><p class="td">平日夜。帰りは当日残席で購入</p></div>
+    </div>
+  </div>
+  <div class="note"><p><strong>ポイント：</strong>石窟庵バスの時刻がこの日の時間軸。夜景スポットは徒歩でつなげる。</p></div>
+</section>
+<div class="gap"></div>
+
+<!-- ══════ DAY 4 ══════════════════════════════ -->
+<section class="day-sec" id="day4">
+  <div class="dh">
+    <div class="dh-ring dh-r1"></div>
+    <div class="dh-ring dh-r2"></div>
+    <div class="dh-wm">4</div>
+    <div class="dh-badge">軽〜中</div>
+    <div class="dh-inner">
+      <div class="dh-num">DAY 4 · 9月10日（木）</div>
+      <div class="dh-title">最終日｜甘川文化村 → 帰国</div>
+      <div class="dh-sub">午前だけ観光・午後は空港へ</div>
+    </div>
+  </div>
+  <div class="tl">
+    <div class="tr dim">
+      <div class="tt">08:00</div>
+      <div class="tc"><div class="tp"><span class="te">🍳</span><span class="tn">朝食</span></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">09:00</div>
+      <div class="tc"><div class="tp"><span class="te">🚕</span><span class="tn">釜山駅 → 甘川文化村</span></div><p class="td">2人ならタクシーが楽</p></div>
+    </div>
+    <div class="tr">
+      <div class="tt">09:15</div>
+      <div class="tc"><div class="tp"><span class="te">🎨</span><span class="tn">甘川文化村</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=甘川文化村+釜山" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=甘川文化村+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div><p class="td">坂・階段あり。1時間半で区切る</p></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">11:00</div>
+      <div class="tc"><div class="tp"><span class="te">🚕</span><span class="tn">釜山駅周辺へ戻る</span></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">11:30</div>
+      <div class="tc"><div class="tp"><span class="te">🍽️</span><span class="tn">昼食</span></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">12:30</div>
+      <div class="tc"><div class="tp"><span class="te">🧳</span><span class="tn">Notte La Mia チェックアウト・荷物回収</span><div class="ta"><a class="bm" href="https://maps.google.com/maps?q=Notte+La+Mia+Busan&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+    <div class="tr">
+      <div class="tt">13:00</div>
+      <div class="tc"><div class="tp"><span class="te">✈️</span><span class="tn">金海空港へ出発</span><div class="ta"><a class="bm" href="https://maps.google.com/maps?q=金海国際空港&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
+    </div>
+    <div class="tr dim">
+      <div class="tt">16:30</div>
+      <div class="tc"><div class="tp"><span class="te">🛫</span><span class="tn">出発</span></div></div>
+    </div>
+  </div>
+  <div class="note"><p><strong>ポイント：</strong>甘川だけ。11時前後で切り上げれば空港まで十分余裕あり。</p></div>
+</section>
+
+<footer class="foot">
+  <div class="foot-lbl">この旅のポイント</div>
+  <div class="foot-tips">
+    <span class="ft">初日は軽め</span>
+    <span class="ft">9/8は東→西の一方向</span>
+    <span class="ft">9/9が最も歩く日</span>
+    <span class="ft">夜景：広安里＋慶州</span>
+    <span class="ft">最終日は甘川だけ</span>
+  </div>
+</footer>
+
+</div>
