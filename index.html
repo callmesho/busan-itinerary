@@ -244,6 +244,14 @@ a{color:inherit}
 .td{font-size:15px;color:var(--txt);line-height:1.45;margin:0 0 0 27px}
 .td:empty{display:none}
 
+/* ══ TRANSPORT BADGES ════════════════════════ */
+.tb{display:inline-flex;align-items:center;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700;margin-right:5px;flex-shrink:0;vertical-align:middle;letter-spacing:.02em}
+.tb-sub{background:#1565C0;color:#fff}   /* 地下鉄 */
+.tb-ktx{background:#C62828;color:#fff}   /* KTX */
+.tb-bus{background:#2E7D32;color:#fff}   /* バス */
+.tb-taxi{background:#F57F17;color:#111}  /* タクシー */
+.tb-dh{background:#00838F;color:#fff}    /* 東海線 */
+
 /* ══ NOTE ════════════════════════════════════ */
 .note{background:var(--srf);padding:12px 20px 14px}
 .note p{font-size:12.5px;color:var(--sub);line-height:1.5;padding-left:12px;border-left:3px solid var(--bdr)}
@@ -430,13 +438,18 @@ a{color:inherit}
     </div>
     <div class="tr dim">
       <div class="tt">18:30</div>
-      <div class="tc"><div class="tp"><span class="te">🚶</span><span class="tn">広安里へ移動</span></div></div>
+      <div class="tc"><div class="tp"><span class="te">🚇</span><span class="tn"><span class="tb tb-sub">地下鉄</span>中洞駅 → 金蓮山駅</span></div></div>
     </div>
     <div class="tr">
       <div class="tt">19:00</div>
       <div class="tc"><div class="tp"><span class="te">🌉</span><span class="tn">広安里・広安大橋の夜景</span><div class="ta"><a class="bi" href="https://www.google.com/search?q=広安大橋+夜景+釜山" target="_blank" rel="noopener" title="調べる">🔍</a><a class="bm" href="https://maps.google.com/maps?q=広安大橋+釜山&z=14" target="_blank" rel="noopener" title="地図">📍</a></div></div></div>
     </div>
 
+  </div>
+    <div class="tr dim">
+      <div class="tt">21:30</div>
+      <div class="tc"><div class="tp"><span class="te">🚇</span><span class="tn"><span class="tb tb-sub">地下鉄</span>広安駅 → 釜山駅</span></div><p class="td">ホテルへ</p></div>
+    </div>
   </div>
   <div class="note"><p><strong>ポイント：</strong>冬柏島は「余力があれば追加」。無理に全部回らない。</p></div>
 </section>
