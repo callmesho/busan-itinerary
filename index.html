@@ -279,11 +279,12 @@ a{color:inherit}
 
   /* ─ Hero ─ */
   .hero{padding:22px 16px 22px}
-  .hero-spots{gap:6px}
-  .hspot{font-size:11px;padding:4px 9px}
-  .hero-grid{gap:7px}
-  .hg{padding:11px 13px 11px 16px}
-  .hg-n{font-size:12.5px}
+  /* Day nav: 1列・横並びレイアウト */
+  .hero-grid{grid-template-columns:1fr;gap:5px}
+  .hg{padding:12px 14px 12px 18px;display:flex;align-items:center;gap:10px}
+  .hg-d{margin-bottom:0;font-size:11px;flex-shrink:0}
+  .hg-n{font-size:15px;flex:1;min-width:0}
+  .hg-dt{margin-top:0;font-size:12px;flex-shrink:0}
 
   /* ─ Sticky nav ─ */
   .sna{padding:10px 12px;font-size:11px;gap:5px}
@@ -309,7 +310,6 @@ a{color:inherit}
 }
 
 @media(max-width:380px){
-  .hero-grid{grid-template-columns:1fr}
   .tr{grid-template-columns:46px 1fr}
   .tt{padding:10px 4px 8px 10px;font-size:10px}
   .tc{padding:8px 10px 8px 9px}
