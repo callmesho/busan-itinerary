@@ -244,6 +244,11 @@ a{color:inherit}
 .td{font-size:15px;color:var(--txt);line-height:1.45;margin:0 0 0 27px}
 .td:empty{display:none}
 
+/* ══ CONFIRMED TIME ROW ══════════════════════ */
+.tr.fix{background:rgba(24,64,204,.05)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .tr.fix{background:rgba(122,154,255,.07)}}
+:root[data-theme="dark"] .tr.fix{background:rgba(122,154,255,.07)}
+
 /* ══ TRANSPORT BADGES ════════════════════════ */
 .tb{display:inline-flex;align-items:center;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700;margin-right:5px;flex-shrink:0;vertical-align:middle;letter-spacing:.02em}
 .tb-sub{background:#1565C0;color:#fff;border-radius:4px;font-size:13px;padding:1px 6px}   /* 地下鉄 M */
@@ -416,11 +421,11 @@ a{color:inherit}
     </div>
   </div>
   <div class="tl">
-    <div class="tr dim">
+    <div class="tr dim fix">
       <div class="tt">08:47</div>
       <div class="tc"><div class="tp"><span class="tn"><span class="tb tb-sub">M</span>釜山駅 → 教大駅</span></div></div>
     </div>
-    <div class="tr dim">
+    <div class="tr dim fix">
       <div class="tt">09:17</div>
       <div class="tc"><div class="tp"><span class="tn"><span class="tb tb-dh">東海線</span>教大駅 → オシリア駅</span></div></div>
     </div>
