@@ -245,19 +245,19 @@ a{color:inherit}
 .td:empty{display:none}
 
 /* ══ CONFIRMED TIME ══════════════════════════ */
-.tr .tt.fix{color:#1840CC;font-weight:800;padding-top:9px}
+.tr .tt.fix{color:#1840CC;font-weight:800}
 .tr .tt.fix>span{
-  background:rgba(24,64,204,.12);
-  border-radius:999px;
-  padding:3px 8px;
   display:inline-block;
+  border-radius:999px;
+  background:rgba(24,64,204,.12);
+  box-shadow:0 0 0 4px rgba(24,64,204,.12);
 }
 @media(prefers-color-scheme:dark){
   :root:not([data-theme="light"]) .tr .tt.fix{color:#7A9AFF}
-  :root:not([data-theme="light"]) .tr .tt.fix>span{background:rgba(122,154,255,.15)}
+  :root:not([data-theme="light"]) .tr .tt.fix>span{background:rgba(122,154,255,.15);box-shadow:0 0 0 4px rgba(122,154,255,.15)}
 }
 :root[data-theme="dark"] .tr .tt.fix{color:#7A9AFF}
-:root[data-theme="dark"] .tr .tt.fix>span{background:rgba(122,154,255,.15)}
+:root[data-theme="dark"] .tr .tt.fix>span{background:rgba(122,154,255,.15);box-shadow:0 0 0 4px rgba(122,154,255,.15)}
 
 /* ══ TRANSPORT BADGES ════════════════════════ */
 .tb{display:inline-flex;align-items:center;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700;margin-right:5px;flex-shrink:0;vertical-align:middle;letter-spacing:.02em}
